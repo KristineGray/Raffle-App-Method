@@ -13,8 +13,8 @@ namespace ConsoleUI
         {
             Console.WriteLine("Welcome to the Party!!");
             GetUserInfo();
-            PrintGuestsName();
             MultiLineAnimation();
+            PrintGuestsName();
             PrintWinner();
 
             Console.ReadKey(); // For testing
@@ -49,13 +49,13 @@ namespace ConsoleUI
                     name = GetUserInput("\nPlease enter your name ");
                 }
                 otherGuest = GetUserInput("\nDo you want to add another name?").ToLower();
+                raffleNumber = GenerateRandomNumber(min, max);
+                while (guests.ContainsKey(raffleNumber))
+                    raffleNumber = GenerateRandomNumber(min, max);
+                AddGuestsInRaffle(raffleNumber, name);
             }
             while (otherGuest == "yes" || otherGuest == "y");
-            raffleNumber = GenerateRandomNumber(min, max);
-            while (guests.ContainsKey(raffleNumber))
-                raffleNumber = GenerateRandomNumber(min, max);
 
-            AddGuestsInRaffle(raffleNumber, name);
         }
 
         private static int GenerateRandomNumber(int min, int max)

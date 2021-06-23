@@ -27,12 +27,31 @@ namespace ConsoleUI
         //Methods:
         private static string GetUserInput(string message)
         {
-            Console.WriteLine("Enter a message");
+            Console.WriteLine(message);
             string data = Console.ReadLine();
             return data;
         }
 
+        private static void GetUserInfo()
+        {
+            string otherGuest = "yes";
+            string name;
+            do
+            {
+                name = GetUserInput("Please enter your name ");
+                while (string.IsNullOrWhiteSpace(name))
+                {
+                    name = GetUserInput("Please enter your name ");
+                }
+                otherGuest = GetUserInput("Do you want to add another name?").ToLower();
+            }
+            while (otherGuest == "yes" || otherGuest == "y");
+            raffleNumber = GenerateRandomNumber(min, max);
+            while (guests.ContainsKey(raffleNumber))
+                raffleNumber = GenerateRandomNumber(min, max);
 
+            AddGuestsInRaffle(raffleNumber, name);
+        }
 
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/

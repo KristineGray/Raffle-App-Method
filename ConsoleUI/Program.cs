@@ -11,8 +11,13 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-        
+            Console.WriteLine("Welcome to the Party!!");
+            GetUserInfo();
+            PrintGuestsName();
+            MultiLineAnimation();
+            PrintWinner();
 
+            Console.ReadKey(); // For testing
         }
 
         //Start writing your code here
@@ -38,12 +43,12 @@ namespace ConsoleUI
             string name;
             do
             {
-                name = GetUserInput("Please enter your name ");
+                name = GetUserInput("\nPlease enter your name ");
                 while (string.IsNullOrWhiteSpace(name))
                 {
-                    name = GetUserInput("Please enter your name ");
+                    name = GetUserInput("\nPlease enter your name ");
                 }
-                otherGuest = GetUserInput("Do you want to add another name?").ToLower();
+                otherGuest = GetUserInput("\nDo you want to add another name?").ToLower();
             }
             while (otherGuest == "yes" || otherGuest == "y");
             raffleNumber = GenerateRandomNumber(min, max);
@@ -82,11 +87,11 @@ namespace ConsoleUI
             return numbers[rdmIndex];
         }
 
-        private static void PrintWinner(int winningNumber)
+        private static void PrintWinner()
         {
             int winnerNumber = GetRaffleNumber(guests);
             string winnerName = guests[winnerNumber];
-            Console.WriteLine($"The winner is: {winnerName} with the #{winnerNumber}");
+            Console.WriteLine($"\n\nThe winner is: {winnerName} with the raffle #{winnerNumber}");
         }
 
 

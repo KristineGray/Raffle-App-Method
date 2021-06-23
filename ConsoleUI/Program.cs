@@ -11,13 +11,26 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-
+        
 
         }
 
         //Start writing your code here
 
+        //Variables:
+        private static Dictionary<int, string> guests = new Dictionary<int, string>();
+        private static int min = 1000;
+        private static int max = 9999;
+        private static int raffleNumber;
+        private static Random _rdm = new Random();
 
+        //Methods:
+        private static string GetUserInput(string message)
+        {
+            Console.WriteLine("Enter a message");
+            string data = Console.ReadLine();
+            return data;
+        }
 
 
 

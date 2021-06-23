@@ -63,6 +63,14 @@ namespace ConsoleUI
             guests.Add(raffleNumber, guest);
         }
 
+        private static void PrintGuestsName()
+        {
+            foreach (KeyValuePair<int, string> guest in guests)
+            {
+                Console.WriteLine($"{guest.Key}: {guest.Value}");
+            }
+        }
+
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {

@@ -53,6 +53,11 @@ namespace ConsoleUI
             AddGuestsInRaffle(raffleNumber, name);
         }
 
+        private static int GenerateRandomNumber(int min, int max)
+        {
+            return _rdm.Next(min, max);
+        }
+
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {

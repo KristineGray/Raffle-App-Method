@@ -71,6 +71,17 @@ namespace ConsoleUI
             }
         }
 
+        private static int GetRaffleNumber(Dictionary<int, string> people)
+        {
+            List<int> numbers = new List<int>();
+            foreach (KeyValuePair<int, string> person in people)
+            {
+                numbers.Add(person.Key);
+            }
+            int rdmIndex = _rdm.Next(0, numbers.Count);
+            return numbers[rdmIndex];
+        }
+
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {

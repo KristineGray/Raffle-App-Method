@@ -58,6 +58,11 @@ namespace ConsoleUI
             return _rdm.Next(min, max);
         }
 
+        private static void AddGuestsInRaffle(int raffleNumber, string guest)
+        {
+            guests.Add(raffleNumber, guest);
+        }
+
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {

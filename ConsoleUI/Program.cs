@@ -82,6 +82,13 @@ namespace ConsoleUI
             return numbers[rdmIndex];
         }
 
+        private static void PrintWinner(int winningNumber)
+        {
+            int winnerNumber = GetRaffleNumber(guests);
+            string winnerName = guests[winnerNumber];
+            Console.WriteLine($"The winner is: {winnerName} with the #{winnerNumber}");
+        }
+
 
         static void MultiLineAnimation() // Credit: https://www.michalbialecki.com/2018/05/25/how-to-make-you-console-app-look-cool/
         {
